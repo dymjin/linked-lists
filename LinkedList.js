@@ -60,7 +60,7 @@ export class LinkedList {
     return false;
   }
   find(value) {
-     if (this.#head === null) return null;
+    if (this.#head === null) return null;
     let temp = this.#head;
     let counter = 0;
     while (temp !== null) {
@@ -83,5 +83,26 @@ export class LinkedList {
     return str;
   }
   insertAt(value, index) {}
-  removeAt(index) {}
+  removeAt(index) {
+    if (this.#head === null) return null;
+    let temp = this.#head;
+    let prev = null,
+      cur = temp,
+      counter = 0;
+    while (temp !== null) {
+      if (counter === index && prev === null) {
+
+        this.#head = cur.nextNode;
+        break;
+      }
+      if (counter === index) {
+        prev.nextNode = cur.nextNode;
+        break;
+      }
+      temp = temp.nextNode;
+      prev = cur;
+      cur = temp;
+      counter++;
+    }
+  }
 }
