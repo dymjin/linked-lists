@@ -34,7 +34,17 @@ export class LinkedList {
       counter++;
     }
   }
-  pop() {}
+  pop() {
+    if (this.#head === null) return null;
+    let temp = this.#head;
+    let prev = null, cur = temp;
+    while (temp.nextNode !== null) {
+      temp = temp.nextNode;
+      prev = cur;
+      cur = temp;
+    }
+    prev.nextNode = null;
+  }
   contains(value) {}
   find(value) {}
   toString() {
