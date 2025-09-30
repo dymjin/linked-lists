@@ -5,7 +5,16 @@ export class LinkedList {
   prepend(value) {
     this.#head = new Node(value, this.#head);
   }
-  size() {}
+  size() {
+    if (this.#head === null) return null;
+    let temp = this.#head;
+    let count = 0;
+    while (temp) {
+      temp = temp.nextNode;
+      count++;
+    }
+    return count;
+  }
   head() {
     return this.#head !== null ? this.#head : null;
   }
