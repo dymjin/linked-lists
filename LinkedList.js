@@ -82,7 +82,22 @@ export class LinkedList {
     str += temp;
     return str;
   }
-  insertAt(value, index) {}
+  insertAt(value, index) {
+    if (this.#head === null) return null;
+    let temp = this.#head;
+    let prev = null,
+      cur = temp,
+      counter = 0;
+    while (temp !== null) {
+      if (counter === index) {
+        prev.nextNode = new Node(value, cur);
+      }
+      temp = temp.nextNode;
+      prev = cur;
+      cur = temp;
+      counter++;
+    }
+  }
   removeAt(index) {
     if (this.#head === null) return null;
     let temp = this.#head;
@@ -91,7 +106,6 @@ export class LinkedList {
       counter = 0;
     while (temp !== null) {
       if (counter === index && prev === null) {
-
         this.#head = cur.nextNode;
         break;
       }
