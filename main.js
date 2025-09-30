@@ -4,7 +4,8 @@ const list = new LinkedList();
 list.append("bear");
 list.append("squid");
 list.append("bee");
-list.prepend("pear");
+list.insertAt("pineapple", 1);
+// list.prepend("pear");
 // list.prepend("mango");
 // list.prepend("apple");
 
