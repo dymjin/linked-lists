@@ -6,8 +6,15 @@ export class LinkedList {
     this.#head = new Node(value, this.#head);
   }
   size() {}
-  head() {}
-  tail() {}
+  head() {
+    return this.#head !== null ? this.#head : null;
+  }
+  tail() {
+    if (this.#head === null) return null;
+    let temp = this.#head;
+    while (temp.nextNode !== null) temp = temp.nextNode;
+    return temp;
+  }
   at(index) {}
   pop() {}
   contains(value) {}
