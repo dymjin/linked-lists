@@ -2,7 +2,9 @@ import { Node } from "./Node.js";
 export class LinkedList {
   #head = null;
   append(value) {}
-  prepend(value) {}
+  prepend(value) {
+    this.#head = new Node(value, this.#head);
+  }
   size() {}
   head() {}
   tail() {}
@@ -10,7 +12,17 @@ export class LinkedList {
   pop() {}
   contains(value) {}
   find(value) {}
-  toString() {}
+  toString() {
+    let temp = this.#head,
+      str = "";
+    while (temp) {
+      str += `( ${temp.value} )`;
+      str += ` -> `;
+      temp = temp.nextNode;
+    }
+    str += temp;
+    return str;
+  }
   insertAt(value, index) {}
   removeAt(index) {}
 }
