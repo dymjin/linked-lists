@@ -50,7 +50,15 @@ export class LinkedList {
     }
     prev.nextNode = null;
   }
-  contains(value) {}
+  contains(value) {
+    if (this.#head === null) return false;
+    let temp = this.#head;
+    while (temp !== null) {
+      if (temp.value === value) return true;
+      temp = temp.nextNode;
+    }
+    return false;
+  }
   find(value) {}
   toString() {
     if (this.#head === null) return null;
