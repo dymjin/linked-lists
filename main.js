@@ -11,6 +11,7 @@ list.prepend("pear");
 // list.pop();
 // console.log(list.head());
 // console.log(list.tail());
-console.log(list.size());
+// console.log(list.size());
+console.log(list.contains("squdid"));
 // console.log(list.at(0));
 console.log(list.toString());
