@@ -1,12 +1,15 @@
 import { Node } from "./Node.js";
 export class LinkedList {
   #head = null;
-  append(value) {}
+  append(value) {
+    if (this.#head === null) this.prepend(value);
+    else this.tail().nextNode = new Node(value, null);
+  }
   prepend(value) {
     this.#head = new Node(value, this.#head);
   }
   size() {
-    if (this.#head === null) return null;
+    if (this.#head === null) return 0;
     let temp = this.#head;
     let count = 0;
     while (temp) {
@@ -16,7 +19,8 @@ export class LinkedList {
     return count;
   }
   head() {
-    return this.#head !== null ? this.#head : null;
+    if (this.#head !== null) return this.#head;
+    return null;
   }
   tail() {
     if (this.#head === null) return null;
@@ -37,7 +41,8 @@ export class LinkedList {
   pop() {
     if (this.#head === null) return null;
     let temp = this.#head;
-    let prev = null, cur = temp;
+    let prev = null,
+      cur = temp;
     while (temp.nextNode !== null) {
       temp = temp.nextNode;
       prev = cur;
@@ -48,6 +53,7 @@ export class LinkedList {
   contains(value) {}
   find(value) {}
   toString() {
+    if (this.#head === null) return null;
     let temp = this.#head,
       str = "";
     while (temp) {
