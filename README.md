@@ -1,1 +1,1 @@
-# linked-lists
+Linked list project for TOP. Provided all methods for LinkedList class as well as extras. Will come back to optimize in the future.
