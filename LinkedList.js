@@ -24,7 +24,16 @@ export class LinkedList {
     while (temp.nextNode !== null) temp = temp.nextNode;
     return temp;
   }
-  at(index) {}
+  at(index) {
+    if (this.#head === null) return null;
+    let temp = this.#head;
+    let counter = 0;
+    while (temp !== null) {
+      if (counter === index) return temp;
+      temp = temp.nextNode;
+      counter++;
+    }
+  }
   pop() {}
   contains(value) {}
   find(value) {}
