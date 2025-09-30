@@ -59,7 +59,17 @@ export class LinkedList {
     }
     return false;
   }
-  find(value) {}
+  find(value) {
+     if (this.#head === null) return null;
+    let temp = this.#head;
+    let counter = 0;
+    while (temp !== null) {
+      if (temp.value === value) return counter;
+      temp = temp.nextNode;
+      counter++;
+    }
+    return null;
+  }
   toString() {
     if (this.#head === null) return null;
     let temp = this.#head,
